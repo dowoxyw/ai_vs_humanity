@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ce7cbvn6su76a"]
+
+[ext_resource type="Script" uid="uid://dwvlcsxdrm03l" path="res://game/game.gd" id="1_71o52"]
+[ext_resource type="Texture2D" uid="uid://burkhhegbvd3w" path="res://assets/gBot.png" id="2_0h4ti"]
+[ext_resource type="Texture2D" uid="uid://b2q7tp5byyfb2" path="res://assets/gHuman.png" id="3_gftou"]
+[ext_resource type="PackedScene" uid="uid://cygtqanamu68e" path="res://level/level.tscn" id="4_740bt"]
+[ext_resource type="PackedScene" uid="uid://cmgvxyhs6y1mj" path="res://player2/player2.tscn" id="5_082ov"]
+[ext_resource type="PackedScene" uid="uid://nhpj5cy87771" path="res://gui/pause_menu_singleplayer.tscn" id="6_x6b3n"]
+
+[node name="Game" type="Node" unique_id=924924404]
+process_mode = 3
+script = ExtResource("1_71o52")
+enemy_skin = ExtResource("2_0h4ti")
+player_skin = ExtResource("3_gftou")
+
+[node name="Level" parent="." unique_id=1137818157 instance=ExtResource("4_740bt")]
+
+[node name="SkeletalPlayer" parent="Level" unique_id=556136065 instance=ExtResource("5_082ov")]
+z_index = 3
+position = Vector2(166, 636)
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=837823649]
+layer = 100
+
+[node name="PauseMenu" parent="InterfaceLayer" unique_id=1388998718 instance=ExtResource("6_x6b3n")]

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bc4a8j7okb15h"]
+
+[ext_resource type="Texture2D" uid="uid://dh5f4544n38df" path="res://bullet/bullet.webp" id="1"]
+[ext_resource type="Script" uid="uid://d1w0ue3cdwgbk" path="res://enemy2/enemy2.gd" id="1_kwlxx"]
+[ext_resource type="AudioStream" uid="uid://cwqx3s5fy0q7t" path="res://enemy/explode.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://v1ehqldgci2l" path="res://enemy/hit.wav" id="3"]
+[ext_resource type="PackedScene" uid="uid://c5vee07nnx5yy" path="res://player2/player_animation.tscn" id="5_fkwhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbu8v"]
+size = Vector2(21.22379, 73)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6w4qg"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_bqnmb"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8qry"]
+size = Vector2(280, 81)
+
+[node name="Enemy3" type="CharacterBody2D" unique_id=596459649]
+collision_layer = 2
+collision_mask = 24
+script = ExtResource("1_kwlxx")
+
+[node name="PlatformDetector" type="RayCast2D" parent="." unique_id=973558554]
+position = Vector2(0, 6)
+target_position = Vector2(0, 8)
+collision_mask = 8
+
+[node name="FloorDetectorLeft" type="RayCast2D" parent="." unique_id=910279955]
+position = Vector2(-15, -4)
+target_position = Vector2(0, 35)
+collision_mask = 24
+
+[node name="FloorDetectorRight" type="RayCast2D" parent="." unique_id=782144340]
+position = Vector2(15.5, -3)
+target_position = Vector2(0, 35)
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1174827882]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_kbu8v")
+
+[node name="Explosion" type="CPUParticles2D" parent="." unique_id=1322275026]
+self_modulate = Color(1, 1, 1, 0.12)
+material = SubResource("CanvasItemMaterial_6w4qg")
+emitting = false
+amount = 32
+texture = ExtResource("1")
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.2
+explosiveness = 0.7
+draw_order = 215832976
+emission_shape = 1
+emission_sphere_radius = 16.0
+spread = 180.0
+gravity = Vector2(0, -250)
+color_ramp = SubResource("Gradient_bqnmb")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=1791067492]
+stream = ExtResource("3")
+
+[node name="Explode" type="AudioStreamPlayer2D" parent="." unique_id=453738939]
+stream = ExtResource("2")
+
+[node name="Animation" parent="." unique_id=242122462 instance=ExtResource("5_fkwhk")]
+
+[node name="HuntingArea" type="Area2D" parent="." unique_id=1484880062]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HuntingArea" unique_id=1407717265]
+position = Vector2(0, -26.5)
+shape = SubResource("RectangleShape2D_h8qry")
+
+[node name="AttackAnimation" type="Timer" parent="." unique_id=875058076]
+one_shot = true
+
+[connection signal="body_entered" from="HuntingArea" to="." method="_on_hunting_area_body_entered"]
