@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c5igyr1ohjiua"]
+
+[ext_resource type="Script" uid="uid://bw8l0ayxhwnm7" path="res://final_person/final_person.gd" id="1_b8l8h"]
+[ext_resource type="PackedScene" uid="uid://c5vee07nnx5yy" path="res://player/player_animation.tscn" id="2_o3ypd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwtgr"]
+size = Vector2(102, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8l8h"]
+size = Vector2(21.22379, 73)
+
+[node name="FinalPerson" type="CharacterBody2D" unique_id=556136065 groups=["Player"]]
+collision_layer = 0
+collision_mask = 24
+floor_constant_speed = true
+platform_on_leave = 2
+script = ExtResource("1_b8l8h")
+
+[node name="Animation" parent="." unique_id=242122462 instance=ExtResource("2_o3ypd")]
+
+[node name="SpeechAnimation" type="Timer" parent="." unique_id=322517605]
+wait_time = 3.0
+one_shot = true
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1400700585]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=595284520]
+position = Vector2(0, -26.5)
+shape = SubResource("RectangleShape2D_hwtgr")
+
+[node name="ContinueText" type="Label" parent="." unique_id=2077190675]
+z_index = 4
+offset_left = -152.0
+offset_top = -100.0
+offset_right = 152.0
+offset_bottom = -77.0
+text = "We need to defuse all enemies before..."
+horizontal_alignment = 1
+
+[node name="FinalText" type="Label" parent="." unique_id=255010546]
+z_index = 4
+offset_left = -152.0
+offset_top = -100.0
+offset_right = 152.0
+offset_bottom = -77.0
+text = "Finally the game is over now..."
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=306275041]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_b8l8h")
+
+[connection signal="timeout" from="SpeechAnimation" to="." method="_on_speech_animation_timeout"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]

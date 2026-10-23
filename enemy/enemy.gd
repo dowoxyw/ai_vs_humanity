@@ -130,6 +130,8 @@ func die() -> void:
 	_player_ref = null
 	velocity    = Vector2.ZERO
 
+	remove_from_group("enemies")
+
 	set_collision_layer_value(2, false)
 
 func _on_hunting_area_body_entered(body: Node2D) -> void:

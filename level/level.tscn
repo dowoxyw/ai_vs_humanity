@@ -928,41 +928,6 @@ position = Vector2(693, 190)
 scale = Vector2(1, -1)
 texture = ExtResource("22")
 
-[node name="v19" type="Sprite2D" parent="Grass" unique_id=2115968951]
-z_index = -1
-material = ExtResource("18")
-position = Vector2(509, 517)
-scale = Vector2(1, -1)
-texture = ExtResource("21")
-
-[node name="v20" type="Sprite2D" parent="Grass" unique_id=818663296]
-z_index = -1
-material = ExtResource("18")
-position = Vector2(414, 534)
-scale = Vector2(1, -1)
-texture = ExtResource("21")
-
-[node name="v40" type="Sprite2D" parent="Grass" unique_id=475522913]
-z_index = -1
-material = ExtResource("18")
-position = Vector2(656, 532)
-scale = Vector2(1, -1)
-texture = ExtResource("22")
-
-[node name="v41" type="Sprite2D" parent="Grass" unique_id=1681628816]
-z_index = -1
-material = ExtResource("18")
-position = Vector2(686, 515)
-scale = Vector2(1, -1)
-texture = ExtResource("21")
-
-[node name="v42" type="Sprite2D" parent="Grass" unique_id=1793611615]
-z_index = -1
-material = ExtResource("18")
-position = Vector2(489, 537)
-scale = Vector2(1, -1)
-texture = ExtResource("22")
-
 [node name="v3" type="Sprite2D" parent="Grass" unique_id=91238120]
 z_index = -1
 material = ExtResource("18")

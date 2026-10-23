@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b2q7tp5byyfb2" path="res://assets/gHuman.png" id="3_gftou"]
 [ext_resource type="PackedScene" uid="uid://cygtqanamu68e" path="res://level/level.tscn" id="4_740bt"]
 [ext_resource type="PackedScene" uid="uid://cmgvxyhs6y1mj" path="res://player/player.tscn" id="5_082ov"]
+[ext_resource type="PackedScene" uid="uid://c5igyr1ohjiua" path="res://final_person/final_person.tscn" id="6_0h4ti"]
 [ext_resource type="PackedScene" uid="uid://mqs27wy1rtxk" path="res://gui/pause_menu.tscn" id="6_71o52"]
 
 [node name="Game" type="Node" unique_id=924924404]
@@ -20,6 +21,9 @@ z_index = 3
 position = Vector2(166, 636)
 health_capacity = 30
 
+[node name="FinalPerson" parent="Level" unique_id=218448217 instance=ExtResource("6_0h4ti")]
+position = Vector2(1076, -4)
+
 [node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=837823649]
 layer = 100
 
@@ -27,3 +31,4 @@ layer = 100
 
 [connection signal="coin_collected" from="Level/SkeletalPlayer" to="InterfaceLayer/PauseMenu" method="_on_coin_collected"]
 [connection signal="player_died" from="Level/SkeletalPlayer" to="InterfaceLayer/PauseMenu" method="_on_player_died"]
+[connection signal="game_over" from="Level/FinalPerson" to="InterfaceLayer/PauseMenu" method="_on_player_died"]

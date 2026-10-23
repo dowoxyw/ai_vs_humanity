@@ -12,6 +12,11 @@ func _ready() -> void:
 		var animation = player_node.get_node(^"Animation")
 		animation.set_skin(player_skin)
 
+	var final_node = get_node("Level/FinalPerson")
+	if final_node is FinalPerson:
+		var animation = final_node.get_node(^"Animation")
+		animation.set_skin(player_skin)
+
 	var enemies_node = get_node("Level/Enemies")
 	for child in enemies_node.get_children():
 		if child is Enemy:

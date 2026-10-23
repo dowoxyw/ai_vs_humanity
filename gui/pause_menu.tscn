@@ -66,6 +66,10 @@ offset_top = 0.0
 offset_right = 105.0
 offset_bottom = 50.0
 
+[node name="ShowTimer" type="Timer" parent="." unique_id=1120542131]
+wait_time = 2.0
+
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="ShowTimer" to="." method="_on_show_timer_timeout"]

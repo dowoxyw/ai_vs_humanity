@@ -2,7 +2,7 @@ class_name PauseMenu
 
 extends Control
 
-@export var fade_in_duration := 0.3
+@export var fade_in_duration  := 0.3
 @export var fade_out_duration := 0.2
 
 @onready var center_cont   := $ColorRect/CenterContainer as CenterContainer
@@ -66,4 +66,7 @@ func _on_quit_button_pressed() -> void:
 		get_tree().quit()
 
 func _on_player_died() -> void:
+	$ShowTimer.start()
+
+func _on_show_timer_timeout() -> void:
 	show()
