@@ -8,13 +8,13 @@ extends Node
 
 func _ready() -> void:
 	var player_node = get_node("Level/SkeletalPlayer")
-	if player_node is MyPlayer:
+	if player_node is Player:
 		var animation = player_node.get_node(^"Animation")
 		animation.set_skin(player_skin)
 
 	var enemies_node = get_node("Level/Enemies")
 	for child in enemies_node.get_children():
-		if child is Enemy2:
+		if child is Enemy:
 			var animation = child.get_node(^"Animation")
 			animation.set_skin(enemy_skin)
 

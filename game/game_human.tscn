@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://burkhhegbvd3w" path="res://assets/gBot.png" id="2_0h4ti"]
 [ext_resource type="Texture2D" uid="uid://b2q7tp5byyfb2" path="res://assets/gHuman.png" id="3_gftou"]
 [ext_resource type="PackedScene" uid="uid://cygtqanamu68e" path="res://level/level.tscn" id="4_740bt"]
-[ext_resource type="PackedScene" uid="uid://cmgvxyhs6y1mj" path="res://player2/player2.tscn" id="5_082ov"]
+[ext_resource type="PackedScene" uid="uid://cmgvxyhs6y1mj" path="res://player/player.tscn" id="5_082ov"]
 [ext_resource type="PackedScene" uid="uid://nhpj5cy87771" path="res://gui/pause_menu_singleplayer.tscn" id="6_x6b3n"]
 
 [node name="Game" type="Node" unique_id=924924404]

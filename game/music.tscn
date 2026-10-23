@@ -5,5 +5,5 @@
 [node name="Music" type="AudioStreamPlayer" unique_id=1540100509]
 process_mode = 1
 stream = ExtResource("1_8pjkj")
-volume_db = -3.0
+volume_db = -15.355
 autoplay = true

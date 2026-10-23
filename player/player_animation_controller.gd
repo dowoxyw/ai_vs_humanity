@@ -7,8 +7,7 @@ const SHOT_PARAM = {
 	GEnums.PlayerAnimShot.LANDED      : "parameters/land/request",
 	GEnums.PlayerAnimShot.LANDED_HARD : "parameters/land_hard/request",
 	GEnums.PlayerAnimShot.ATTACK      : "parameters/attack/request",
-	GEnums.PlayerAnimShot.HIT         : "parameters/hit/request",
-	GEnums.PlayerAnimShot.DIE         : "parameters/die/request"
+	GEnums.PlayerAnimShot.HIT         : "parameters/hit/request"
 }
 
 enum PlayerAnimState {
@@ -50,7 +49,6 @@ func is_shot_active(shot : GEnums.PlayerAnimShot) -> bool:
 	return $AnimationPlayer.current_animation == SHOT_PARAM[shot]
 
 func play_die() -> void:
-	play_shot(GEnums.PlayerAnimShot.DIE)
 	$AnimationTree[TRANSITION_REQUEST_PARAM] = STATE_ID[PlayerAnimState.LYING]
 
 func update_state(velocity : Vector2, is_on_floor : bool) -> void:
