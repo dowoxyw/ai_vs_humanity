@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dom4bonh6boka"]
+
+[ext_resource type="Script" uid="uid://boguj6q4ga0lv" path="res://gui/start_menu.gd" id="1_82ymg"]
+
+[node name="StartMenu" type="Control" unique_id=190903779]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_82ymg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=978981617]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=868314102]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=852982311]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1438099789]
+layout_mode = 2
+text = "AI vs Humanity"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=54511443]
+layout_mode = 2
+
+[node name="PlayAsAIButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=598637679]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play as AI"
+
+[node name="PlayAsHumanButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1695223369]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play as Human"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PlayAsAIButton" to="." method="_on_play_as_ai_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/PlayAsHumanButton" to="." method="_on_play_as_human_button_pressed"]

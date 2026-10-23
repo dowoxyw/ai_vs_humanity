@@ -1,4 +1,5 @@
 class_name PauseMenu
+
 extends Control
 
 @export var fade_in_duration := 0.3
@@ -49,27 +50,20 @@ func open() -> void:
 			fade_out_duration
 		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
-
 func _on_coin_collected() -> void:
 	coins_counter.collect_coin()
-
 
 func _on_resume_button_pressed() -> void:
 	close()
 
-
-func _on_singleplayer_button_pressed() -> void:
+func _on_restart_button_pressed() -> void:
 	if visible:
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://game_singleplayer.tscn")
-
-
-func _on_splitscreen_button_pressed() -> void:
-	if visible:
-		get_tree().paused = false
-		get_tree().change_scene_to_file("res://game_splitscreen.tscn")
-
+		get_tree().change_scene_to_file("res://gui/start_menu.tscn")
 
 func _on_quit_button_pressed() -> void:
 	if visible:
 		get_tree().quit()
+
+func _on_player_died() -> void:
+	show()

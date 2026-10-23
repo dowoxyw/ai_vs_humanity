@@ -4,9 +4,10 @@ extends CharacterBody2D
 
 signal health_changed
 signal coin_collected
+signal player_died
 
-@export  var health_capacity: int = 100
-var health_value : int = health_capacity
+@export  var health_capacity : int = 100
+@onready var health_value    : int = health_capacity
 
 enum State {
 	ALIVE,
@@ -35,6 +36,9 @@ var gravity: int = ProjectSettings.get(&"physics/2d/default_gravity")
 
 var _double_jump_charged: bool  = false
 var gun_direction       : float = 1.0
+
+func _ready() -> void:
+	health_changed.emit()
 
 func get_health_capacity() -> int:
 	return health_capacity
@@ -108,3 +112,4 @@ func die() -> void:
 	$ProgressBar.visible = false
 	_state   = State.DEAD
 	velocity = Vector2.ZERO
+	player_died.emit()

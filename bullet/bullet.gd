@@ -1,7 +1,7 @@
 class_name Bullet
 extends RigidBody2D
 
-@export  var damage: int = 30
+@export  var damage: int = 35
 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 

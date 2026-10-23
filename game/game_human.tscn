@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b2q7tp5byyfb2" path="res://assets/gHuman.png" id="3_gftou"]
 [ext_resource type="PackedScene" uid="uid://cygtqanamu68e" path="res://level/level.tscn" id="4_740bt"]
 [ext_resource type="PackedScene" uid="uid://cmgvxyhs6y1mj" path="res://player/player.tscn" id="5_082ov"]
-[ext_resource type="PackedScene" uid="uid://nhpj5cy87771" path="res://gui/pause_menu_singleplayer.tscn" id="6_x6b3n"]
+[ext_resource type="PackedScene" uid="uid://mqs27wy1rtxk" path="res://gui/pause_menu.tscn" id="6_71o52"]
 
 [node name="Game" type="Node" unique_id=924924404]
 process_mode = 3
@@ -18,8 +18,12 @@ player_skin = ExtResource("3_gftou")
 [node name="SkeletalPlayer" parent="Level" unique_id=556136065 instance=ExtResource("5_082ov")]
 z_index = 3
 position = Vector2(166, 636)
+health_capacity = 30
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=837823649]
 layer = 100
 
-[node name="PauseMenu" parent="InterfaceLayer" unique_id=1388998718 instance=ExtResource("6_x6b3n")]
+[node name="PauseMenu" parent="InterfaceLayer" unique_id=1424075319 instance=ExtResource("6_71o52")]
+
+[connection signal="coin_collected" from="Level/SkeletalPlayer" to="InterfaceLayer/PauseMenu" method="_on_coin_collected"]
+[connection signal="player_died" from="Level/SkeletalPlayer" to="InterfaceLayer/PauseMenu" method="_on_player_died"]

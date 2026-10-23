@@ -11,7 +11,7 @@ enum State {
 signal health_changed
 
 const WALK_SPEED = 40.0
-const RUN_SPEED  = 300.0
+const RUN_SPEED  = 250.0
 
 const ATTACK_DISTANCE = 35.0
 const STOP_HUNTING    = 200.0

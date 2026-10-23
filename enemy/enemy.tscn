@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d1w0ue3cdwgbk" path="res://enemy/enemy.gd" id="1_kwlxx"]
 [ext_resource type="PackedScene" uid="uid://c5vee07nnx5yy" path="res://player/player_animation.tscn" id="5_fkwhk"]
 [ext_resource type="Script" uid="uid://prr8rt8sj3h7" path="res://scripts/health_bar.gd" id="6_kwlxx"]
-[ext_resource type="Theme" uid="uid://druwsfawbvrf4" path="res://assets/theme_helth_bars.tres" id="6_ppmum"]
+[ext_resource type="Theme" uid="uid://druwsfawbvrf4" path="res://gui/theme_helth_bars.tres" id="6_ppmum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbu8v"]
 size = Vector2(21.22379, 73)
